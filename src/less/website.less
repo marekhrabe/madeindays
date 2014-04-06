@@ -34,7 +34,7 @@ body {
         background-repeat: no-repeat;
         position: absolute;
         top: 10px;
-        left: 20px;
+        left: 17px;
         text-indent: -9999px;
     }
 
@@ -102,12 +102,12 @@ body {
 body.loaded {
     .page {
         opacity: 1;
-        .transition(1s ease-out);
+        .transition(1.3s ease-in);
     }
 
     #loading {
         opacity: 0;
-        .transition(1s ease-out);
+        .transition(1.3s ease-in);
     }
 
     .intro {
@@ -116,6 +116,16 @@ body.loaded {
             .transform(scale(1) translateY(0));
             opacity: 1;
         }
+    }
+
+    .interactive {
+        > div {
+            background-image: url(assets/images/parts.png);
+        }
+    }
+
+    .buy {
+        background-image: url(assets/images/footer.jpg);
     }
 
     .photo {
@@ -165,7 +175,7 @@ body.loaded {
     p {
         color: #333;
         .tisa;
-        font-size: 17px;
+        font-size: 20px;
         width: 660px;
         text-align: center;
         margin: 0 auto;
@@ -193,16 +203,16 @@ body.loaded {
     p {
         color: #656565;
         .tisa;
-        font-style: italic;
         font-size: 20px;
         margin: 0 auto 60px;
         width: 660px;
 
         a {
             color: #999;
-            font-size: 17px;
+            font-size: 20px;
             text-decoration: none;
             border-bottom: 1px solid transparent;
+            font-style: italic;
             .transition(.2s);
 
             &:hover {
@@ -213,15 +223,12 @@ body.loaded {
     .interactive {
         position: relative;
         display: block;
-        width: 437px;
-        height: 337px;
+        .size(681, 389);
         margin: 0 auto;
 
         > div {
-            background-image: url(assets/images/interactive.png);
             background-repeat: no-repeat;
-            width: 437px;
-            height: 337px;
+            .size(681, 389);
         }
 
         span {
@@ -328,17 +335,12 @@ body.loaded {
 
         &.leather {
             margin-top: -30px;
-
-            div {
-                background-image: url(assets/images/leather.png);
-            }
         }
         &.felt {
             margin-top: 120px;
 
             div {
                 height: 125px;
-                background-image: url(assets/images/felt.png);
             }
             p {
                 top: 20px;
@@ -462,7 +464,6 @@ body.loaded {
     background-color: #a6a9a8;
     .background-size(cover);
     background-position: center;
-    background-image: url(assets/images/footer.jpg);
     height: 700px;
 
     > div {
@@ -507,6 +508,8 @@ body.loaded {
         margin-bottom: 15px;
         padding: 15px 45px;
         .transition(.2s);
+        .appearance(none);
+        cursor: pointer;
 
         &:hover {
             background-color: #333;
@@ -609,11 +612,17 @@ body.loaded {
     .transition(.8s);
     z-index: 9999999;
 
-    .close {
+    #close {
+        display: block;
+        opacity: .7;
         .size(40px);
         background-image: url(assets/images/close.svg);
         background-size: 100%;
         background-repeat: no-repeat;
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        cursor: pointer;
     }
 
     .center {

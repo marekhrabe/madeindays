@@ -53,6 +53,18 @@
         document.getElementById('order').classList.add('active');
     });
 
+    // close overlay
+
+    var closeOverlay = function () {
+        document.getElementById('order').classList.remove('active');
+    };
+    document.getElementById('close').addEventListener('click', closeOverlay);
+    window.addEventListener('keydown', function (e) {
+        if (e.keyCode === 27) {
+            closeOverlay();
+        }
+    })
+
     // measures and geolocation
 
     var imperial = ['US', 'UK', 'CA'];
