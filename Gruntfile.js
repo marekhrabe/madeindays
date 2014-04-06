@@ -118,10 +118,10 @@ module.exports = function (grunt) {
             }
         },
         cdnify: {
-            someTarget: {
+            deploy: {
                 options: {
                     rewriter: function (url) {
-                        if (url.indexOf('data:') === 0 || url.indexOf('//') === 0) {
+                        if (url.indexOf('data:') === 0 || url.substr(0, 2) === '//' || url === '/') {
                             return url;
                         } else {
                             return pkg.cdn + url;
