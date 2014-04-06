@@ -121,7 +121,7 @@ module.exports = function (grunt) {
     grunt.registerTask('index', ['htmlmin:index', 'indexBanner']);
     grunt.registerTask('libs', ['uglify:libs']);
     grunt.registerTask('js', ['uglify:app']);
-    grunt.registerTask('css', ['recess:less', 'imageEmbed']);
+    grunt.registerTask('css', ['copy:assets', 'recess:less', 'imageEmbed']);
 
     grunt.registerTask('watch', ['esteWatch']);
 };
