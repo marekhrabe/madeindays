@@ -7,6 +7,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-este-watch');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
+    grunt.loadNpmTasks("grunt-image-embed");
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -94,6 +95,15 @@ module.exports = function (grunt) {
                 },
             },
         },
+        imageEmbed: {
+            dist: {
+                src: ['dist/style.css'],
+                dest: 'dist/style.css',
+                options: {
+                    deleteAfterEncoding: false,
+                }
+            }
+        },
     });
 
 
@@ -111,7 +121,7 @@ module.exports = function (grunt) {
     grunt.registerTask('index', ['htmlmin:index', 'indexBanner']);
     grunt.registerTask('libs', ['uglify:libs']);
     grunt.registerTask('js', ['uglify:app']);
-    grunt.registerTask('css', ['recess:less']);
+    grunt.registerTask('css', ['recess:less', 'imageEmbed']);
 
     grunt.registerTask('watch', ['esteWatch']);
 };
