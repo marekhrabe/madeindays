@@ -36,7 +36,7 @@ module.exports = function (grunt) {
                         expand: true,
                         cwd: 'dist/',
                         src: '**',
-                        dest: 'live/',
+                        dest: 'deploy/',
                     },
                 ],
             },
@@ -120,7 +120,13 @@ module.exports = function (grunt) {
         cdnify: {
             someTarget: {
                 options: {
-                    base: pkg.cdn,
+                    rewriter: function (url) {
+                        if (url.indexOf('data:') === 0 || url.indexOf('//') === 0) {
+                            return url;
+                        } else {
+                            return pkg.cdn + url;
+                        }
+                    },
                 },
                 files: [{
                     expand: true,
