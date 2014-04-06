@@ -721,11 +721,13 @@ body.loaded {
     opacity: .5;
     z-index: 99999;
     display: none;
-    .transition(opacity .2s);
+    .transition(.2s);
     cursor: pointer;
+    .transform-origin(bottom center);
 
     &:hover {
         opacity: .7;
+        .scale(1.1);
     }
 
     &:after {
