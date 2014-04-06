@@ -1,66 +1,81 @@
-var isMobile = !!navigator.userAgent.match(/mobile/i);
+(function () {
+    var isMobile = !!navigator.userAgent.match(/mobile/i);
 
-// loading
+    // loading
 
-window.addEventListener('load', function () {
-    document.body.classList.add('loaded');
-});
+    window.addEventListener('load', function () {
+        // page fade-in
 
-// skrollr responsive logic
+        document.body.classList.add('loaded');
 
-var scrolling = null;
-var felt = document.getElementById('felt');
-var checkSize = function () {
-    if (scrolling && window.innerHeight < 700) {
-        scrolling.destroy();
-        scrolling = null;
-    }
-    if (window.innerHeight >= 700) {
-        if (!scrolling) {
-            scrolling = skrollr.init({
-                forceHeight: false,
-                edgeStrategy: 'set',
-            });
+        // instagram feed
+
+        var feed = new Instafeed({
+            get: 'user',
+            userId: 961164036,
+            accessToken: '961164036.467ede5.f6ffed6c5a564ad9a1355a6994ddcd37',
+            limit: 6,
+            template: '<a href="{{link}}" target="_blank"><img src="{{image}}"></a>',
+        });
+        feed.run();
+    });
+
+    // skrollr responsive logic
+
+    var scrolling = null;
+    var felt = document.getElementById('felt');
+    var checkSize = function () {
+        if (scrolling && window.innerHeight < 700) {
+            scrolling.destroy();
+            scrolling = null;
         }
-        felt.style.marginTop = Math.floor((window.innerHeight - 565) / 2) + 'px';
+        if (window.innerHeight >= 700) {
+            if (!scrolling) {
+                scrolling = skrollr.init({
+                    forceHeight: false,
+                    edgeStrategy: 'set',
+                });
+            }
+            felt.style.marginTop = Math.floor((window.innerHeight - 565) / 2) + 'px';
+        }
+    };
+
+    // activate skrollr only for non-mobile devices
+
+    if (!isMobile) {
+        window.addEventListener('resize', checkSize);
+        checkSize();
     }
-};
 
-// activate skrollr only for non-mobile devices
+    // buy button
 
-if (!isMobile) {
-    window.addEventListener('resize', checkSize);
-    checkSize();
-}
+    document.getElementById('buy').addEventListener('click', function () {
+        document.getElementById('order').classList.add('active');
+    });
 
-// buy button
+    // measures and geolocation
 
-document.getElementById('buy').addEventListener('click', function () {
-    document.getElementById('order').classList.add('active');
-});
+    var imperial = ['US', 'UK', 'CA'];
+    var measures = document.getElementById('measures');
+    window.geolocated = function (data) {
+        if (data && data.countryCode && imperial.indexOf(data.countryCode) > -1) {
+            measures.classList.add('imperial');
+        }
+    };
+    measures.addEventListener('click', function () {
+        measures.classList.toggle('imperial');
+    });
 
-// measures and geolocation
+    // arrow
 
-var imperial = ['US', 'UK', 'CA'];
-var measures = document.getElementById('measures');
-window.geolocated = function (data) {
-    if (data && data.countryCode && imperial.indexOf(data.countryCode) > -1) {
-        measures.classList.add('imperial');
-    }
-};
-measures.addEventListener('click', function () {
-    measures.classList.toggle('imperial');
-});
-
-// arrow
-
-document.getElementById('arrow').addEventListener('click', function () {
-    var onScreen = window.scrollY / window.innerHeight;
-    var nextScreen = 1;
-    if (onScreen >= 1 && onScreen < 1.5) {
-        nextScreen = 1.5;
-    } else if (onScreen >= 1.5) {
-        nextScreen = Math.floor(onScreen) + 1.5;
-    }
-    animatedScrollTo(document.body, Math.round(nextScreen * window.innerHeight), 1500);
-});
+    document.getElementById('arrow').addEventListener('click', function () {
+        var onScreen = window.scrollY / window.innerHeight;
+        var nextScreen = 1;
+        if (onScreen >= 1 && onScreen < 1.5) {
+            nextScreen = 1.5;
+        } else if (onScreen >= 1.5) {
+            nextScreen = Math.floor(onScreen) + 1.5;
+        }
+        animatedScrollTo(document.body, Math.round(nextScreen * window.innerHeight), 1500);
+    });
+})();
