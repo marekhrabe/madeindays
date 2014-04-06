@@ -1,5 +1,5 @@
 (function () {
-    var isMobile = !!navigator.userAgent.match(/mobile/i);
+    var isMobile = !!navigator.userAgent.match(/(iphone|ipod|android)/i);
 
     // loading
 

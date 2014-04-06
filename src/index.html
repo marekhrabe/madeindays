@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Made in Days</title>
-    <meta name="viewport" content="width=800">
+    <meta name="viewport" content="width=768">
     <link rel="stylesheet" href="style.css">
     <script src="//use.typekit.net/<%= pkg.typekit %>.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
@@ -24,6 +24,8 @@
     <link rel="shortcut icon" href="assets/favicon.png">
 </head>
 <body>
+
+<div id="loading"><div class="logo"></div></div>
 
 <div class="header">
     <div class="dark" data-90p="opacity:0" data-100p="opacity:1" data-240p="opacity:1" data-250p="opacity:0" data-840p="opacity:0" data-850p="opacity:1" data-940p="opacity:1" data-950p="opacity:0">
@@ -142,7 +144,7 @@
                     <li><a href="">Contact</a></li>
                 </ul>
             </div>
-            <div>
+            <div class="instagram">
                 <h2>Instagram</h2>
                 <div class="photos" id="instafeed"></div>
             </div>
@@ -165,10 +167,6 @@
             <button type="submit">Send It</button>
         </form>
     </div>
-</div>
-
-<div id="loading">
-    <div class="logo"></div>
 </div>
 
 <script src="libs.js"></script>

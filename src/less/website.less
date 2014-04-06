@@ -10,6 +10,7 @@
 body {
     background: #f2eee9;
     text-align: center;
+    -webkit-text-size-adjust: none;
 
     .page > * {
         max-width: 100%;
@@ -113,6 +114,7 @@ body {
     left: 0;
     right: 0;
     pointer-events: none;
+    background: #f2eee9;
 }
 .intro {
     background-color: #808896;
@@ -839,5 +841,37 @@ body.loaded {
         bottom: -20px;
         left: -20px;
         right: -20px;
+    }
+}
+
+@media screen and (max-width: 840px) {
+    .specs .features {
+        .scale(.75);
+        width: 840px;
+        .transform-origin(center);
+        position: relative;
+        left: 50%;
+        margin-left: -420px;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    .materials .material {
+        left: -80px;
+    }
+}
+
+@media screen and (max-width: 930px) {
+    .buy > div {
+        .transform(translate(-300px,-50%));
+    }
+}
+
+@media screen and (max-width: 990px) {
+    .footer .center>div:nth-child(2) {
+        margin-right: none;
+    }
+    .footer .center>div:nth-child(3) {
+        display: none !important;
     }
 }
