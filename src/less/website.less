@@ -287,6 +287,7 @@ body.loaded {
             margin-top: 120px;
 
             div {
+                height: 125px;
                 background-image: url(assets/images/felt.png);
             }
             p {
@@ -638,6 +639,9 @@ body.loaded {
         height: 100% !important;
         overflow: initial !important;
     }
+    #arrow {
+        display: block;
+    }
     .intro, .detail, .description {
         position: fixed;
         height: 100%;
@@ -705,4 +709,32 @@ body.loaded {
     }
 }
 
-.keyframes(~'rotate,to{transform:rotateY(360deg);}');
+#arrow {
+    .size(46px, 24px);
+    background-image: url(assets/images/arrow.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    position: fixed;
+    left: 50%;
+    bottom: 20px;
+    margin-left: -23px;
+    opacity: .5;
+    z-index: 99999;
+    display: none;
+    .transition(opacity .2s);
+    cursor: pointer;
+
+    &:hover {
+        opacity: .7;
+    }
+
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: -20px;
+        bottom: -20px;
+        left: -20px;
+        right: -20px;
+    }
+}

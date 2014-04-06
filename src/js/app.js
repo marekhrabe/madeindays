@@ -9,16 +9,20 @@ window.addEventListener('load', function () {
 // skrollr responsive logic
 
 var scrolling = null;
+var felt = document.getElementById('felt');
 var checkSize = function () {
     if (scrolling && window.innerHeight < 700) {
         scrolling.destroy();
         scrolling = null;
     }
-    if (!scrolling && window.innerHeight >= 700) {
-        scrolling = skrollr.init({
-            forceHeight: false,
-            edgeStrategy: 'set',
-        });
+    if (window.innerHeight >= 700) {
+        if (!scrolling) {
+            scrolling = skrollr.init({
+                forceHeight: false,
+                edgeStrategy: 'set',
+            });
+        }
+        felt.style.marginTop = Math.floor((window.innerHeight - 565) / 2) + 'px';
     }
 };
 
@@ -46,4 +50,17 @@ window.geolocated = function (data) {
 };
 measures.addEventListener('click', function () {
     measures.classList.toggle('imperial');
+});
+
+// arrow
+
+document.getElementById('arrow').addEventListener('click', function () {
+    var onScreen = window.scrollY / window.innerHeight;
+    var nextScreen = 1;
+    if (onScreen >= 1 && onScreen < 1.5) {
+        nextScreen = 1.5;
+    } else if (onScreen >= 1.5) {
+        nextScreen = Math.floor(onScreen) + 1.5;
+    }
+    animatedScrollTo(document.body, Math.round(nextScreen * window.innerHeight), 1500);
 });
