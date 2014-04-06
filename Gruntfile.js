@@ -100,7 +100,7 @@ module.exports = function (grunt) {
                 src: ['dist/style.css'],
                 dest: 'dist/style.css',
                 options: {
-                    deleteAfterEncoding: false,
+                    deleteAfterEncoding: true,
                 }
             }
         },
