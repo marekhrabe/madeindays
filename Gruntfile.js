@@ -8,9 +8,12 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-este-watch');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks("grunt-image-embed");
+    grunt.loadNpmTasks("grunt-cdnify");
+
+    var pkg = grunt.file.readJSON('package.json');
 
     grunt.initConfig({
-        pkg: grunt.file.readJSON('package.json'),
+        pkg: pkg,
         src: {
             js: ['src/**/*.js'],
             libs: ['libs/*.js'],
@@ -24,6 +27,16 @@ module.exports = function (grunt) {
                         cwd: 'src/assets/',
                         src: '**',
                         dest: 'dist/assets/',
+                    },
+                ],
+            },
+            deploy: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'dist/',
+                        src: '**',
+                        dest: 'live/',
                     },
                 ],
             },
@@ -104,6 +117,19 @@ module.exports = function (grunt) {
                 }
             }
         },
+        cdnify: {
+            someTarget: {
+                options: {
+                    base: pkg.cdn,
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'deploy',
+                    src: '**/*.{css,html}',
+                    dest: 'deploy',
+                }]
+            }
+        },
     });
 
 
@@ -122,6 +148,8 @@ module.exports = function (grunt) {
     grunt.registerTask('libs', ['uglify:libs']);
     grunt.registerTask('js', ['uglify:app']);
     grunt.registerTask('css', ['copy:assets', 'recess:less', 'imageEmbed']);
+
+    grunt.registerTask('deploy', ['default', 'copy:deploy', 'cdnify'])
 
     grunt.registerTask('watch', ['esteWatch']);
 };
