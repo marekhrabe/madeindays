@@ -63,6 +63,7 @@ body {
     background-color: #808896;
     background-image: url(assets/images/intro.jpg);
     .background-size(cover);
+    background-position: center;
     height: 100%;
     min-height: 700px;
 
@@ -183,6 +184,7 @@ body.loaded {
 
 .photo {
     .background-size(cover);
+    background-position: center;
     height: 100%;
     min-height: 700px;
 
@@ -316,13 +318,13 @@ body.loaded {
         text-align: center;
         margin: 0 auto 30px;
     }
-    .measures {
+    #measures {
         width: 180px;
         height: 44px;
         margin: 0 auto 70px;
         .perspective(1000);
 
-        &:hover {
+        &.imperial {
             .flip {
                 .transform(rotateX(180deg));
             }
@@ -345,6 +347,7 @@ body.loaded {
                 background-color: #f2eee9;
                 position: relative;
                 .transition(.2s);
+                cursor: pointer;
 
                 &:nth-child {
                     z-index: 2;
@@ -407,6 +410,7 @@ body.loaded {
     overflow: hidden;
     background-color: #a6a9a8;
     .background-size(cover);
+    background-position: center;
     background-image: url(assets/images/footer.jpg);
     height: 700px;
 
@@ -629,11 +633,11 @@ body.loaded {
     }
 }
 
-body.js {
-    height: 100% !important;
-    overflow: initial !important;
-}
-.js {
+.skrollr {
+    body {
+        height: 100% !important;
+        overflow: initial !important;
+    }
     .intro, .detail, .description {
         position: fixed;
         height: 100%;
