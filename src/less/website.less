@@ -5,6 +5,8 @@
     font-family: 'din-condensed-web', sans-serif;
 }
 
+@darkBrown: #c3a995;
+
 body {
     background: #f2eee9;
     text-align: center;
@@ -25,6 +27,12 @@ body {
     width: 100%;
     height: 100px;
     z-index: 1000;
+
+    > div {
+        position: absolute;
+        width: 100%;
+        top: 0;
+    }
 
     .logo {
         display: block;
@@ -58,6 +66,20 @@ body {
             &.tw {
                 background-image: url(assets/images/twitter.svg);
                 .size(30);
+            }
+        }
+    }
+
+    .dark {
+        .logo {
+            background-image: url(assets/images/logo-inline-dark.svg);
+        }
+        .share {
+            a.fb {
+                background-image: url(assets/images/facebook-dark.svg);
+            }
+            a.tw {
+                background-image: url(assets/images/twitter-dark.svg);
             }
         }
     }
@@ -164,7 +186,7 @@ body.loaded {
     padding: 100px 0;
 
     h2 {
-        color: #c3a995;
+        color: @darkBrown;
         .din;
         font-size: 38px;
         text-transform: uppercase;
@@ -191,7 +213,7 @@ body.loaded {
         display: inline-block;
         height: 66px;
         line-height: 58px;
-        border: 4px solid #c3a995;
+        border: 4px solid @darkBrown;
         color: #c2a995;
         .din;
         letter-spacing: 7px;
@@ -329,7 +351,7 @@ body.loaded {
             strong {
                 font-weight: bold;
                 font-style: italic;
-                color: #c3a995;
+                color: @darkBrown;
             }
         }
 
@@ -355,7 +377,7 @@ body.loaded {
     background: #f2eee9;
 
     h2 {
-        color: #c3a995;
+        color: @darkBrown;
         .din;
         font-size: 38px;
         text-transform: uppercase;
@@ -391,9 +413,9 @@ body.loaded {
                 display: block;
                 height: 44px;
                 width: 180px;
-                border: 3px solid #c3a995;
+                border: 3px solid @darkBrown;
                 text-align: center;
-                color: #c3a995;
+                color: @darkBrown;
                 .tisa;
                 font-size: 20px;
                 .backface-visibility(hidden);
@@ -414,7 +436,7 @@ body.loaded {
     }
     .features {
         h3 {
-            color: #c3a995;
+            color: @darkBrown;
             .din;
             font-size: 18px;
             text-align: center;
@@ -552,7 +574,7 @@ body.loaded {
     }
 
     h2 {
-        color: #c3a995;
+        color: @darkBrown;
         text-transform: uppercase;
         .din;
         font-size: 18px;
@@ -644,7 +666,7 @@ body.loaded {
     }
 
     h2 {
-        color: #c3a995;
+        color: @darkBrown;
         .din;
         font-size: 38px;
         letter-spacing: 7px;
@@ -688,8 +710,8 @@ body.loaded {
         }
         button {
             .size(322px, 90px);
-            border: 4px solid #c3a995;
-            color: #c3a995;
+            border: 4px solid @darkBrown;
+            color: @darkBrown;
             background-color: transparent;
             .din;
             font-size: 41px;
@@ -697,7 +719,7 @@ body.loaded {
             letter-spacing: 7px;
 
             &:hover {
-                background-color: #c3a995;
+                background-color: @darkBrown;
                 color: #333;
             }
         }
@@ -766,7 +788,7 @@ body.loaded {
             .size(12px);
             opacity: .3;
             .border-radius(6px);
-            background-color: #c3a995;
+            background-color: @darkBrown;
             margin-bottom: 20px;
         }
     }
