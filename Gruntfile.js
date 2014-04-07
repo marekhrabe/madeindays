@@ -2,7 +2,7 @@ module.exports = function (grunt) {
 
     var banner = grunt.file.readJSON('package.json').banner;
 
-    grunt.loadNpmTasks('grunt-recess');
+    grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-este-watch');
@@ -41,11 +41,10 @@ module.exports = function (grunt) {
                 ],
             },
         },
-        recess: {
+        less: {
             less: {
                 options: {
-                    compile: true,
-                    compress: true,
+                    cleancss: true,
                 },
                 files: {
                     'dist/style.css': ['src/less/main.less'],
@@ -124,7 +123,7 @@ module.exports = function (grunt) {
                         if (url.indexOf('data:') === 0 || url.substr(0, 2) === '//' || url === '/') {
                             return url;
                         } else {
-                            return pkg.cdn + url;
+                            return pkg.cdn + url + '?random=' + Math.floor(Math.random() * 999999);
                         }
                     },
                 },
@@ -153,7 +152,7 @@ module.exports = function (grunt) {
     grunt.registerTask('index', ['htmlmin:index', 'indexBanner']);
     grunt.registerTask('libs', ['uglify:libs']);
     grunt.registerTask('js', ['uglify:app']);
-    grunt.registerTask('css', ['copy:assets', 'recess:less', 'imageEmbed']);
+    grunt.registerTask('css', ['copy:assets', 'less:less', 'imageEmbed']);
 
     grunt.registerTask('deploy', ['default', 'copy:deploy', 'cdnify'])
 
