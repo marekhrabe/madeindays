@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="style.css">
     <script src="//use.typekit.net/<%= pkg.typekit %>.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
     <meta property="og:title" content="Made in Days">
     <meta property="og:description" content="Handcrafted products inspired by life’s fable. Made to last, made to work, made for you. Two pairs of hands come together to create one of a kind products for each of life’s quirks. Which personality are you?">
@@ -30,16 +29,16 @@
 <div class="header">
     <div class="dark" data-90p="opacity:0" data-100p="opacity:1" data-240p="opacity:1" data-250p="opacity:0" data-840p="opacity:0" data-850p="opacity:1" data-940p="opacity:1" data-950p="opacity:0">
         <a href="/" class="logo">Made in Days</a>
-        <div class="share">
-            <a href="" class="fb"></a>
-            <a href="" class="tw"></a>
+        <div class="shares">
+            <a href="" class="share facebook"></a>
+            <a href="" class="share twitter"></a>
         </div>
     </div>
     <div class="light" data-240p="opacity:0" data-250p="opacity:1" data-840p="opacity:1" data-850p="opacity:0" data-940p="opacity:0" data-950p="opacity:1">
         <a href="/" class="logo">Made in Days</a>
-        <div class="share">
-            <a href="" class="fb"></a>
-            <a href="" class="tw"></a>
+        <div class="shares">
+            <a href="" class="share facebook"></a>
+            <a href="" class="share twitter"></a>
         </div>
     </div>
 </div>
@@ -53,7 +52,7 @@
     <div class="description" data-0p="transform:translate(0,200%)" data-150p="transform:translate(0,-100%)">
         <div class="center" data-30p="opacity:0" data-50p="opacity:1" data-110p="opacity:1" data-120p="opacity:0">
             <h2>One day at a time</h2>
-            <p>With every handcrafted product comes a lesson from life’s fable. Two pairs of hands come together to create one of a kind products for each of life’s quirks.</p>
+            <p>With every handcrafted product comes a lesson from life’s fable.<br>Two pairs of hands come together to create one of a kind<br>products for each of life’s quirks.</p>
         </div>
     </div>
 
@@ -61,7 +60,7 @@
         <div class="center">
             <div data-80p="opacity:0" data-100p="opacity:1">
                 <h2>Day 1: Sharpshooter</h2>
-                <p>Practical, brave, and ruthlessly charming, the <strong>Sharpshooter</strong> is an accessory with a whole lot of bite. <a href="javascript:alert('todo')">More about Day 1 at our blog.</a></p>
+                <p>Practical, brave, and ruthlessly charming, the <strong>Sharpshooter</strong> is<br>an accessory with a whole lot of bite.</p>
             </div>
 
             <div class="interactive">
@@ -124,10 +123,10 @@
 
     <div class="buy" data-850p="transform:translate(0,100%) translateY(0px)" data-950p="transform:translate(0,0%) translateY(0px)" data-1000p="transform:translate(0,0%) translateY(-415px)">
         <div data-910p="opacity:0" data-930p="opacity:1">
-            <h3>Limited Edition of <strong>8</strong> wallets for <strong>$120</strong></h3>
+            <h3>Limited Edition of <strong>8</strong> wallets for <strong>$<span id="priceTag">…</span></strong></h3>
             <h2>Take it or leave it</h2>
             <button id="buy">I want one</button>
-            <p>Still available: <strong>6</strong>/8</p>
+            <p>Still available: <strong id="piecesLeft">?</strong>/8</p>
         </div>
     </div>
 
@@ -140,8 +139,9 @@
             <div>
                 <h2>More info</h2>
                 <ul>
-                    <li><a href="">About us</a></li>
-                    <li><a href="">Contact</a></li>
+                    <li><a href="http://blog.madeindays.com/" target="_blank">Blog</a></li>
+                    <li><a href="http://blog.madeindays.com/about/" target="_blank">About us</a></li>
+                    <li><a href="mailto:info@madeindays.com">Contact</a></li>
                 </ul>
             </div>
             <div class="instagram">
@@ -156,21 +156,44 @@
 </div>
 
 <div class="order" id="order">
-    <a id="close"></a>
+    <a class="close"></a>
     <div class="center">
-        <h2>Complete Your Order</h2>
-        <p>All products are made to order with shipping details according to preference.</p>
-        <form action="">
-            <input placeholder="Your Name" type="text" id="name">
-            <input placeholder="E-mail" type="email">
-            <textarea placeholder="Tell us your story…"></textarea>
-            <button type="submit">Send It</button>
-        </form>
+        <div id="formcontainer">
+            <h2>Complete Your Order</h2>
+            <p>All products are made to order with shipping details according to preference.</p>
+            <form action="" id="orderform">
+                <input placeholder="Your Name" type="text" id="name">
+                <input placeholder="E-mail" type="email" id="email">
+                <textarea placeholder="Tell us your story…" id="content"></textarea>
+                <button type="submit" id="buybutton">Send It</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="success" id="success">
+    <a class="close"></a>
+    <div class="center">
+        <div>
+            <h2>Thanks! We’ll be getting back<br>to you real soon.</h2>
+            <p>Now go and spread the word about your latest discovery.</p>
+        </div>
+        <div>
+            <a class="share twitter">
+                <i></i>
+                Share on Twitter
+            </a>
+            <a class="share facebook">
+                <i></i>
+                Share on Facebook
+            </a>
+        </div>
     </div>
 </div>
 
 <script src="libs.js"></script>
 <script src="app.js"></script>
 <script>var _gaq=[['_setAccount','<%= pkg.analytics %>'],['_trackPageview']]</script>
+<script defer src="//madeindays.herokuapp.com/data?callback=priceData"></script>
 <script defer src="//google-analytics.com/ga.js"></script>
 <script defer src="//ip-api.com/json/?callback=geolocated"></script>
