@@ -25,7 +25,7 @@
   "banner": [
     "<%= pkg.title %>",
     "<%= pkg.homepage %>",
-    "team@madebysource.com",
+    "info@madeindays.com",
     "",
     "Copyright <%= grunt.template.today('yyyy') %> <%= pkg.title %> - All Rights Reserved",
     "",
