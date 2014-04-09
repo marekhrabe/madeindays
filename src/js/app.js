@@ -32,11 +32,11 @@
     var scrolling = null;
     var felt = document.getElementById('felt');
     var checkSize = function () {
-        if (scrolling && window.innerHeight < 700) {
+        if (scrolling && window.innerHeight < 660) {
             scrolling.destroy();
             scrolling = null;
         }
-        if (window.innerHeight >= 700) {
+        if (window.innerHeight >= 660) {
             if (!scrolling) {
                 scrolling = skrollr.init({
                     forceHeight: false,
