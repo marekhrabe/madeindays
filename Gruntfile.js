@@ -123,7 +123,7 @@ module.exports = function (grunt) {
                         if (url.indexOf('data:') === 0 || url.substr(0, 2) === '//' || url === '/') {
                             return url;
                         } else {
-                            return pkg.cdn + url + '?random=' + Math.floor(Math.random() * 999999);
+                            return pkg.cdn + url + '?' + Math.floor(Math.random() * 999999);
                         }
                     },
                 },
