@@ -1,0 +1,51 @@
+#awwwards {
+    position:fixed;
+    top:150px;
+    z-index:9999;
+}
+
+#awwwards.left {
+    left:0;
+}
+
+#awwwards a {
+    display:block;
+    width:70px;
+    height:105px;
+    text-indent:-8000px;
+    background-repeat:no-repeat;
+    background-position: 0 0;
+    overflow:hidden;
+}
+
+
+#awwwards.left.white a {
+    background-image:url('assets/images/awwwards/awwwards_nominee_white_left.png');
+}
+
+
+@media (max-width: 767px) {
+
+    /* hidden */
+    #awwwards {
+        display: none;
+    }
+
+}
+
+@media
+only screen and (-Webkit-min-device-pixel-ratio: 1.5),
+only screen and (-moz-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min-device-pixel-ratio: 1.5) {
+    #awwwards a {
+        -moz-background-size: 70px 105px;
+        -ie-background-size:70px 105px;
+        -o-background-size:70px 105px;
+        -webkit-background-size:70px 105px;
+        background-size:70px 105px;
+    }
+    #awwwards.left.white a {
+        background-image:url('assets/images/awwwards/awwwards_nominee_white_left2x.png');
+    }
+}
