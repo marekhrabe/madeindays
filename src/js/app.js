@@ -1,5 +1,5 @@
 (function () {
-    var isMobile = !!navigator.userAgent.match(/(iphone|ipod|android)/i);
+    var isMobileOrFirefox = !!navigator.userAgent.match(/(iphone|ipod|android|firefox)/i);
 
     // share data
 
@@ -49,7 +49,7 @@
 
     // activate skrollr only for non-mobile devices
 
-    if (!isMobile) {
+    if (!isMobileOrFirefox) {
         window.addEventListener('resize', checkSize);
         checkSize();
     }
