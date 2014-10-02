@@ -8,7 +8,7 @@
  * Author:
  * Marek Hrabe <marekhrabe@abdoc.net> (http://github.com/marekhrabe)
  * 
- * Build v1.0.0 - 2014-04-19
+ * Build v1.1.0 - 2014-10-02
  * 
  * Source code on GitHub: https://github.com/marekhrabe/madeindays
  */
