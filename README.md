@@ -33,3 +33,4 @@ Based on [website-base](https://github.com/marekhrabe/website-base) devstack
 - On mobile (tested on iPhone), the viewport is set to have width of 800px, so the web looks like on desktop, but slightly smaller. There was no need to make extra mobile version or bunch of media queries resizing and repositioning everything
 - I experimented with shake animation as a sign of error when submitting order form. Based on feedback it works pretty well
 - Header is changing color to be allways in contrast with scrolled content
+- Some animations are now much more performant thanks to [contribution](https://github.com/marekhrabe/madeindays/pull/1) of [KB1RMA](https://github.com/KB1RMA) - thank you :)
