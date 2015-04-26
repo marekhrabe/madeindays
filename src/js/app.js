@@ -133,36 +133,14 @@
     var orderform = document.getElementById('orderform');
     var formcontainer = document.getElementById('formcontainer');
     orderform.addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        var name = document.getElementById('name').value;
         var email = document.getElementById('email').value;
-        var content = document.getElementById('content').value;
 
-        if (name && email && email.indexOf('@') > -1) {
-            document.getElementById('buybutton').innerHTML = 'Sending';
-
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'http://madeindays.herokuapp.com/email?email=' + encodeURIComponent(email) + '&name=' + encodeURIComponent(name) + '&content=' + encodeURIComponent(content));
-            xhr.onload = function () {
-                var data = JSON.parse(this.response);
-                if (data.status && data.status === 'ok') {
-                    closeOverlays();
-                    setTimeout(function () {
-                        success.classList.add('active');
-                    });
-                } else {
-                    formError();
-                }
-            };
-            xhr.send();
+        if (email && email.indexOf('@') > -1) {
+            // go on, submit the form!
+            setTimeout(closeOverlays, 1000);
         } else {
+            e.preventDefault();
             formError();
         }
     });
-
-    window.priceData = function (data) {
-        document.getElementById('priceTag').innerHTML = data.price;
-        document.getElementById('piecesLeft').innerHTML = data.piecesLeft;
-    };
 })();

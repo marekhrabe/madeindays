@@ -123,10 +123,10 @@
 
     <div class="buy" data-850p="transform:translate(0,100%) translateY(0px)" data-950p="transform:translate(0,0%) translateY(0px)" data-1000p="transform:translate(0,0%) translateY(-415px)">
         <div data-910p="opacity:0" data-930p="opacity:1">
-            <h3>Limited Edition of <strong>8</strong> wallets for <strong>$<span id="priceTag">…</span></strong></h3>
-            <h2>Take it or leave it</h2>
-            <button id="buy">I want one</button>
-            <p>Still available: <strong id="piecesLeft">?</strong>/8</p>
+            <h3>Limited Edition <strong>8</strong> wallets for <strong>$150</strong></h3>
+            <h2>Sold Out</h2>
+            <p><strong>But, there’s a new collection coming soon</strong></p>
+            <button id="buy">Keep Me Posted</button>
         </div>
     </div>
 
@@ -153,21 +153,18 @@
 
     <div class="spacer"></div>
     <div id="arrow"></div>
-
-    <div id="awwwards" class="left white"><a href="http://www.awwwards.com/best-websites/made-in-days" target="_blank">best websites of the world</a></div>
 </div>
 
 <div class="order" id="order">
     <a class="close"></a>
     <div class="center">
         <div id="formcontainer">
-            <h2>Complete Your Order</h2>
-            <p>All products are made to order with shipping details according to preference.</p>
-            <form action="" id="orderform">
-                <input placeholder="Your Name" type="text" id="name">
-                <input placeholder="E-mail" type="email" id="email">
-                <textarea placeholder="Tell us your story…" id="content"></textarea>
-                <button type="submit" id="buybutton">Send It</button>
+            <h2>New Collection Comming Soon</h2>
+            <p>Be the first to know about it!</p>
+            <form action="//madeinmoments.us9.list-manage.com/subscribe/post?u=fa6709730cad187ef3ef8afb2&amp;id=3309065d1b" method="post" target="_blank" id="orderform" novalidate>
+                <input type="hidden" name="b_fa6709730cad187ef3ef8afb2_3309065d1b" value="">
+                <input placeholder="E-mail" type="email" id="email" name="EMAIL">
+                <button type="submit" id="buybutton">Subscribe</button>
             </form>
         </div>
     </div>
@@ -196,6 +193,7 @@
 <script src="libs.js"></script>
 <script src="app.js"></script>
 <script>var _gaq=[['_setAccount','<%= pkg.analytics %>'],['_trackPageview']]</script>
-<script defer src="//madeindays.herokuapp.com/data?callback=priceData"></script>
 <script defer src="//google-analytics.com/ga.js"></script>
 <script defer src="//ip-api.com/json/?callback=geolocated"></script>
+<script src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
+<script>require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us9.list-manage.com","uuid":"fa6709730cad187ef3ef8afb2","lid":"3309065d1b"}) })</script>
